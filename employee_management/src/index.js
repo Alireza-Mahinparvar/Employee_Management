@@ -3,23 +3,31 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import firebase from 'firebase';
+import firebase from "firebase";
+import Dashboard from "./components/dashboard";
+import PerformanceReview from "./components/performanceReview";
+import Navigation from "./components/navigation";
+import Emails from "./components/Emails";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDilyuXhpZe3Tdz6xXjVWHEeEhUoouhVlQ",
-  authDomain: "e-management-db6a7.firebaseapp.com",
-  projectId: "e-management-db6a7",
-  storageBucket: "e-management-db6a7.appspot.com",
-  messagingSenderId: "740156227965",
-  appId: "1:740156227965:web:fe17dec39a470646814c14"
+  apiKey: "AIzaSyBNvJU4V-5hb9Y-5FNISO3l21qDYDKJfIQ",
+  authDomain: "auth-development-f40b0.firebaseapp.com",
+  projectId: "auth-development-f40b0",
+  storageBucket: "auth-development-f40b0.appspot.com",
+  messagingSenderId: "1065805260689",
+  appId: "1:1065805260689:web:55ecc4a0b7c7521d0b9c30",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-);
+/*referencing the express library and creating an application */
+// let express = require("express");
+// let app = express();
+// app.use(express.static("public"));
 
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
