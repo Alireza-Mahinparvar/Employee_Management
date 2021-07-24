@@ -4,6 +4,7 @@ import React, { Component, useState } from "react";
 import Footer from "./footer.js";
 import "./pageLayout.css";
 import RecordList from "./recordList.js";
+import GetTasks from "./getTasks.js";
 
 function Emails() {
   const [mailerState, setMailerState] = useState({
@@ -97,7 +98,8 @@ function Emails() {
       <legend class="container-userList">
         {" "}
         Users list to send email to?
-        {<RecordList />}
+        {/* {<RecordList />} */}
+        {<GetTasks />}
       </legend>
 
       <Footer />

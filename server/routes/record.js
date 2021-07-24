@@ -8,6 +8,30 @@ const recordRoutes = express.Router();
 //This will help us connect to the database
 const dbo = require("../db/conn");
 
+// This section will get a list of role an task info
+recordRoutes.route("/get_tasks").get(function (req, res) {
+  let db_connect = dbo.getDb("employee_management");
+  db_connect
+    .collection("get_tasks")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+// This section will get a list of role an task info
+recordRoutes.route("/role_info").get(function (req, res) {
+  let db_connect = dbo.getDb("employee_management");
+  db_connect
+    .collection("role_info")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
   let db_connect = dbo.getDb("employee_management");
