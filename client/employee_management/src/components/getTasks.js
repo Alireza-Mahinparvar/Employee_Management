@@ -58,9 +58,9 @@ export default class GetTasks extends Component {
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
-              <th> Role</th>
-              <th> Tasks</th>
-              <th></th>
+              <th> First Name</th>
+              <th> Last Name</th>
+              <th> Email</th>
             </tr>
           </thead>
           <tbody>{this.recordList()}</tbody>

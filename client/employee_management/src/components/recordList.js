@@ -37,7 +37,7 @@ export default class RecordList extends Component {
     axios
       .get("http://localhost:3000/get_tasks/")
       .then((response) => {
-        this.setState({ records: response.data });
+        this.setState({ roles: response.data });
       })
       .catch(function (error) {
         console.log(error);
