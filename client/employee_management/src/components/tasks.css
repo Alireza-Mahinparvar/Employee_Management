@@ -113,7 +113,6 @@ body {
 .label-wrapper {
   margin: 0;
   flex: 0 0 100%;
-  text-align: center;
 }
 .visually-hidden {
   position: absolute !important;
@@ -308,7 +307,7 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 15px;
-  margin: 10px 25px 15px;
+  margin: 10px 35%;
 }
 
 /* Dropdown button on hover & focus */
@@ -348,4 +347,11 @@ body {
 
 span{
   font-size: 14px;
+}
+
+[class*="__lg"] {
+    display: inline-block;
+    width: 50%;
+    font-size: 1.9rem;
+    margin-left: 25%;
 }
