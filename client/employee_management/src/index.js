@@ -20,6 +20,12 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+const DATA = [
+  { id: "todo-0", name: "Schedule sprint", completed: true },
+  { id: "todo-1", name: "Review code", completed: false },
+  { id: "todo-2", name: "Attend meeting", completed: false }
+];
+
 /*referencing the express library and creating an application */
 // let express = require("express");
 // let app = express();
@@ -27,7 +33,7 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Emails tasks={DATA} />
   </BrowserRouter>,
   document.getElementById("root")
 );
