@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Container, Card, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
-import { closeForm } from '../../utils/CloseForm';
+import { closeForm } from '../../components/Employee/CloseForm';
 
 const url = 'http://localhost:3002/api/employees';
 const editUrl = 'http://localhost:3002/api/edit/employees';
@@ -128,7 +128,7 @@ function EditForm(props) {
                     />
                   </Form.Group>
                   <Form.Group controlId="editCity">
-                    <Form.Label>City</Form.Label>
+                    <Form.Label>City:</Form.Label>
                     <Form.Control
                       required
                       name="city"

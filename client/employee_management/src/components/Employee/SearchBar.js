@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { filterHandler } from '/components/Employee/filterHandler';
+import { filterHandler } from '../../components/Employee/FilterHandler';
 
 const searchBar = ({ filterValue, employees, changeHandler }) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactTable from 'react-table';
+import ReactTable from "react-table-6";  
+import 'react-table-6/react-table.css';
 import Button from 'react-bootstrap/Button';
-import 'react-table/react-table.css';
 import styled from 'styled-components';
 
 const EmployeeTable = ({

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Container, Card, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
-import { closeForm } from './components/Employee/CloseForm';
+import { closeForm } from '../../components/Employee/CloseForm';
 
 const addUrl = 'http://localhost:3002/api/add/employees/';
 
@@ -102,7 +102,19 @@ function AddForm() {
                     />
                   </Form.Group>
                   <Form.Group controlId="addCity">
-                    <Form.Label>City</Form.Label>
+                    <Form.Label>Email : </Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      name="email"
+                      placeholder="Please enter your email"
+                      value={employee.email}
+                      onChange={onChangeEmail}
+                    />
+                  </Form.Group>
+                  
+                  <Form.Group controlId="addCity">
+                    <Form.Label>City: </Form.Label>
                     <Form.Control
                       required
                       type="text"

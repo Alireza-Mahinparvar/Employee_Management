@@ -2,8 +2,8 @@ import React from 'react';
 import { Row, Col, Container, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
-import SearchBar from './components/Employee/SearchBar';
-import TableTemplate from './components/Employee/EmployeeTable';
+import SearchBar from '../../components/Employee/SearchBar';
+import TableTemplate from '../../components/Employee/EmployeeTable';
 
 const url = 'http://localhost:3002/api/employees';
 
