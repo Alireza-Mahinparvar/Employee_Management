@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function Form(props) {
     const [name, setName] = useState('');
@@ -13,6 +15,22 @@ function Form(props) {
         setName(e.target.value);
       }
 
+
+      /*
+      function userInput(event){
+               userinput = document.getElementById("myVal").value
+             //  console.log(userinput)
+                // console.log(document.getElementById("myVal").value)
+            //draw(document.getElementById("myVal").value)
+           d3.select('svg').remove();
+            main();
+            console.log("Main has been called")
+            // draw(document.getElementById("myVal").value)
+            return false;
+        }
+        */
+
+
   return (
     <form onSubmit={handleSubmit}>
        <h2 className="label-wrapper">
@@ -20,6 +38,7 @@ function Form(props) {
             Assign a task
           </label>
         </h2>
+
         <select class="ddbutton">
   <option value="1" selected="selected">Role</option>
   <option value="2">JS programmer</option>
@@ -27,21 +46,28 @@ function Form(props) {
   <option value="4">Program manager</option>
 </select>
 <hr></hr>
-<select class="ddbutton">
-  <option value="1" selected="selected">Task</option>
-  <option value="2">Commit changes</option>
-  <option value="3">Review request</option>
-  <option value="4">Plan weekly sprints</option>
+<select class="ddbutton" id="new-todo-input" 
+          className="input input__lg"
+          name="text"
+          autoComplete="off"
+          value={name}
+          onChange={handleChange}>
+  <option selected="selected">Task</option>
+  <option >Commit changes</option>
+  <option >Review request</option>
+  <option >Plan weekly sprints</option>
 </select>
+
+
 <hr></hr>
-<button type="submit" className="btn btn__primary btn__lg">
+<button type="submit" className="btn btn__primary btn__lg ">
         Submit
       </button>
       <hr></hr>
-        <input
+      <input //this is the comment textbox
           type="text"
           id="new-todo-input"
-          className="input input__lg"
+          class = "comment"
           name="text"
           autoComplete="off"
           value={name}
