@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
 
 function Form(props) {
     const [name, setName] = useState('');
@@ -53,9 +50,6 @@ function Form(props) {
           value={name}
           onChange={handleChange}>
   <option selected="selected">Task</option>
-  <option >Commit changes</option>
-  <option >Review request</option>
-  <option >Plan weekly sprints</option>
 </select>
 
 
