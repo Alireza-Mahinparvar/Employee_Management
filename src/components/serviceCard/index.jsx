@@ -15,6 +15,7 @@ display:flex;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5em;
 `;
 
 const TopContainer = styled.div`

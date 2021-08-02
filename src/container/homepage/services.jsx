@@ -9,12 +9,15 @@ import Ticketing from "../../images/thumbnails/ticketing.png"
 
 
 const ServicesContainer = styled.div`
+margin-top: 10em;
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2.5em;
 `;
 
 const Title = styled.h1`
+margin-bottom: 2.5em;
   font-weight: 900;
   text-align: center;
   color: #000;
@@ -70,6 +73,7 @@ export default function Services(props) {
   return (
     <ServicesContainer>
       <Title>WAIT, WHY US?</Title>
+      <Title>Because....</Title>
       <ServicesWrapper>
             <ServiceCard {...service1} />
             <ServiceCard {...service2} />
@@ -78,6 +82,7 @@ export default function Services(props) {
             <ServiceCard {...service3} />
             <ServiceCard {...service4} />
       </ServicesWrapper>
+      <Title>What else could an HR Website want? All the NECESSITIES at your fintertips!</Title>
     </ServicesContainer>
   );
 }
