@@ -12,8 +12,8 @@ export default function TaskList(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.editTask(props.id, newName);
-    setNewName("");
+    //props.editTask(props.id, newName);
+    //setNewName("");
     setEditing(false);
   }
 
@@ -60,9 +60,10 @@ export default function TaskList(props) {
             {props.name}
           </label>
         </div>
+        <h4>{newName}</h4>
         <div className="btn-group">
         <button type="button" className="btn" onClick={() => setEditing(true)}>
-  Edit <span className="visually-hidden">{props.name}</span>
+  Add Comment <span className="visually-hidden">{props.name}</span>
 </button>
           <button
             type="button"
