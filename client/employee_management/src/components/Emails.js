@@ -1,107 +1,117 @@
 import React, { Component, useState } from "react";
+import "./tasks.css";
+import Form from "./Form";
+import FilterButton from "./FilterButton";
+import TaskList from "./taskscomponent.js";
+import "./../index.js";
+import { nanoid } from "nanoid";
+
+//import "./../App.js";
 
 // import Navigation from "./navigation";
 import Footer from "./footer.js";
 import "./pageLayout.css";
 import RecordList from "./recordList.js";
 
-function Emails() {
-  const [mailerState, setMailerState] = useState({
-    email: "",
-    subject: "",
-    message: "",
-  });
+const FILTER_MAP = {
+  All: () => true,
+  Active: task => !task.completed,
+  Completed: task => task.completed
+};
 
-  function handleStateChange(e) {
-    setMailerState((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+function Emails(props) {
+  const [tasks, setTasks] = useState(props.tasks);
+
+  const [filter, setFilter] = useState('All');
+
+
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map(task => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        // use object spread to make a new object
+        // whose `completed` prop has been inverted
+        return {...task, completed: !task.completed}
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
   }
 
-  const submitEmail = async (e) => {
-    e.preventDefault();
-    console.log({ mailerState });
-    const response = await fetch("http://localhost:3001/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        console.log(resData);
-        if (resData.status === "success") {
-          alert("Message Sent :)");
-        } else if (resData.status === "fail") {
-          alert("Message failed to send :(");
-        }
-      })
-      .then(() => {
-        setMailerState({
-          email: "",
-          subject: "",
-          message: "",
-        });
-      });
-  };
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map(task => {
+    // if this task has the same ID as the edited task
+      if (id === task.id) {
+        //
+        return {...task, name: newName}
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
+  }
+
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter(task => id !== task.id);
+    setTasks(remainingTasks);
+  }
+
+  const taskList = tasks
+  .filter(FILTER_MAP[filter])
+  .map(task => (
+    <TaskList
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
+    />
+  ));
+
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
+
+  function addTask(name) {
+    const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
+    setTasks([...tasks, newTask]);
+  }
+
+  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
+
+
+
+
+
 
   return (
-    <div>
-      {/* <Navigation /> */}
-      <form
-        style={{
-          display: "flex",
-          //   height: "100vh",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        onSubmit={submitEmail}
-        className="container-email"
+    
+    <div className="todoapp stack-large">
+      <Form addTask={addTask}/>
+      <div className="filters btn-group stack-exception">
+        {filterList}
+      </div>
+
+      <h2 id="list-heading">{headingText}</h2>
+
+      <ul
+        role="list"
+        className="todo-list stack-large stack-exception"
+        aria-labelledby="list-heading"
       >
-        <fieldset
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "left",
-            width: "100%",
-          }}
-        >
-          <legend>E-mail Station</legend>
-          <input
-            placeholder="Email"
-            onChange={handleStateChange}
-            name="email"
-            value={mailerState.email}
-          />
-          <input
-            placeholder="Subject"
-            onChange={handleStateChange}
-            name="subject"
-            value={mailerState.subject}
-          />
-          <br />
-          <textarea
-            placeholder="Message"
-            onChange={handleStateChange}
-            name="message"
-            value={mailerState.message}
-          />
-          <br />
-          <button className="btn btn-outline-info">Send Message</button>
-        </fieldset>
-      </form>
-
-      <legend class="container-userList">
-        {" "}
-        Users list to send email to?
-        {<RecordList />}
-      </legend>
-
-      <Footer />
+        {taskList}
+      </ul>
     </div>
   );
 }
-export default Emails;
+ export default Emails; 
