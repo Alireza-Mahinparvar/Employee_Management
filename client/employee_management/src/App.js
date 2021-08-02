@@ -8,10 +8,23 @@
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import Navigation from "./components/navigation";
+import Emails from "./components/Emails";
+//import React, { Component, useState } from "react";
 import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Router, Switch, Route } from "react-router-dom";
+
+
+//import Form from "./components/Form";
+//import "./components/tasks.css";
+//import TaskList from "./components/taskscomponent";
+
+const DATA = [
+  { id: "todo-0", name: "Schedule sprint", completed: true },
+  { id: "todo-1", name: "Review code", completed: false },
+  { id: "todo-2", name: "Attend meeting", completed: false }
+];
 
 class App extends React.Component {
   render() {
@@ -24,7 +37,7 @@ class App extends React.Component {
       //     <Route path="/products" component={SignUp} />
       //   </Switch>
       // </Router>
-      <Navigation />
+      <Emails tasks={DATA} />
       //   <Router>
       //     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
       //       <div className="container">
