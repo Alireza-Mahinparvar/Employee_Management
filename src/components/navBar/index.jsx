@@ -93,9 +93,7 @@ export default function navbar(props) {
         <NavbarContainer>
             <BrandLogo logoSize={1.5} textsize={2.5} />
             <AccessibilityContainer>
-                <AnchorLink>Specialists Portal</AnchorLink>
-                <Marginer direction="horizontal" margin={20} />
-                <Button Radius ={1} size={2} widthSize={30} Paddingsize={".2em .3em"}>Register</Button>
+                <Button Radius ={1} size={2} widthSize={60} Paddingsize={".2em .3em"}>Register</Button>
                 <Marginer direction="horizontal" margin={10} />
                 <AnchorLink>Login</AnchorLink>
             </AccessibilityContainer>
