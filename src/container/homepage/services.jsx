@@ -82,7 +82,7 @@ export default function Services(props) {
             <ServiceCard {...service3} />
             <ServiceCard {...service4} />
       </ServicesWrapper>
-      <Title>What else could an HR Website want? All the NECESSITIES at your fintertips!</Title>
+      <Title>What else could an HR Website need? All the NECESSITIES at your fintertips!</Title>
     </ServicesContainer>
   );
 }
