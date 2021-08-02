@@ -1,49 +1,76 @@
 import React, { Component } from "react";
+import "../components/login.css";
+import { css } from "@emotion/core";
+// First way to import
+import { ScaleLoader } from "react-spinners";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
-export default class Login extends Component {
+class Login extends Component {
   render() {
+    // let value=(this.props.pass) ? undefined : "";
     return (
-      <form>
-        <h3>Log in</h3>
+      <div>
+        <div className="container">
+          <div id="main-outer-div">
+            
+            <div id="title-div">
+               
+              <h4 className="title">Sign in</h4>
+            </div>
 
-        <div className="form-group" method="POST">
-          <label>username</label>
-          <input
-            type="username"
-            className="form-control"
-            placeholder="Enter username"
-          />
-        </div>
+            <div id="outer-login-form-div">
+              <form action="" method="" onSubmit={this.props.onSubmit}>
+                {/* <div className="form-group"> */}
+                  <input className="login-form-input"
+                    type="text"
+                    // className="form-control"
+                    placeholder="Email"
+                    required="required"
+                    name="Username"
+                  />
+                {/* </div> */}
+                {/* <div className="form-group"> */}
+                  <input className="login-form-input"
+                    type="password"
+                    // className="form-control"
+                    placeholder="Password"
+                    required="required"
+                  />
+                {/* </div> */}
+                {/* <div className="form-group"> */}
+                  <input className="login-form-input"
+                    type="submit"
+                    // className="btn btn-primary btn-block btn-lg btn-mystyle"
+                    value="Sign in"
+                    id="submitBtn"
+                  />
+                {/* </div> */}
+                {!this.props.pass ? (
+                  <p className="alert">Invalid UserName or Password</p>
+                ) : (
+                  ""
+                )}
+              </form>
+            </div>
 
-        <div className="form-group" method="POST">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-          />
-        </div>
-
-        <div className="form-group">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
+            <div className="loading">
+              <ScaleLoader
+                css={override}
+                sizeUnit={"px"}
+                size={150}
+                color={"#123abc"}
+                loading={this.props.loading}
+              />
+            </div>
           </div>
         </div>
-
-        <button type="submit" className="btn btn-dark btn-lg btn-block">
-          Sign in
-        </button>
-        <p className="forgot-password text-right">
-          Forgot <a href="/">password?</a>
-        </p>
-      </form>
+      </div>
     );
   }
 }
+
+export default Login;
