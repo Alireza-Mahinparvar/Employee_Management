@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Footer } from '../../components/footer';
+import { Marginer } from '../../components/marginer';
 import NavBar from '../../components/navBar';
 import { InnerPageContainer, PageContainer } from '../../components/pageContainer';
+import SpecialistAdd from '../../components/specialistAdd';
 import "./index.css";
 import Services from './services';
 import TopSection from "./topSection";
@@ -32,7 +35,10 @@ export default function homepage(props) {
             <Contentcontainer>
                 <Services />
             </Contentcontainer>
+            <Marginer direction="vertical" margin="4em" />
+            <SpecialistAdd />
         </InnerPageContainer>
+        <Footer />
         </PageContainer>
     );
 }

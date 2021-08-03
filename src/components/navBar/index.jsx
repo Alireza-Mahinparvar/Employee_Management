@@ -89,6 +89,7 @@ export default function navbar(props) {
 
     const {logoSize, textsize} = props;
 
+
     return (
         <NavbarContainer>
             <BrandLogo logoSize={1.5} textsize={2.5} />
