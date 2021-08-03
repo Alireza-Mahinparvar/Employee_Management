@@ -19,6 +19,8 @@ const Record = (props) => (
         Delete
       </a>
     </td> */}
+
+    {/* <td>{props.record.role[0]}</td> */}
   </tr>
 );
 
@@ -27,11 +29,27 @@ export default class RecordList extends Component {
   constructor(props) {
     super(props);
     this.deleteRecord = this.deleteRecord.bind(this);
-    this.state = { records: [] };
+    this.state = { records: [], roles: [] };
   }
 
   // This method will get the data from the database.
   componentDidMount() {
+    axios
+      .get("http://localhost:3000/get_tasks/")
+      .then((response) => {
+        this.setState({ roles: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    axios
+      .get("http://localhost:3000/role_info/")
+      .then((response) => {
+        this.setState({ roles: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     axios
       .get("http://localhost:3000/record/")
       .then((response) => {
@@ -64,6 +82,15 @@ export default class RecordList extends Component {
         />
       );
     });
+    // return this.state.roles.map((currentrecord) => {
+    //   return (
+    //     <Record
+    //       record={currentrecord}
+    //       // deleteRecord={this.deleteRecord}
+    //       key={currentrecord._id}
+    //     />
+    //   );
+    // });
   }
 
   // This following section will display the table with the records of individuals.
