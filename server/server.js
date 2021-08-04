@@ -18,7 +18,3 @@ app.listen(port, () => {
   console.log(`Server is runnings on port: ${port}`);
 });
 
-server = http.createServer();
-app.get('/', (req, res) => {
-  res.send('blah');
-})

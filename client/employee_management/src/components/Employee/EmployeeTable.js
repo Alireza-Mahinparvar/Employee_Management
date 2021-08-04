@@ -59,6 +59,7 @@ const EmployeeTable = ({
       columns={columns}
       defaultPageSize={10}
       style={{
+        backgroundColor: 'white',
         borderColor: '#a5a4a4',
         borderRadius: '5px',
         borderStyle: 'outset',
