@@ -14,7 +14,8 @@ import { IconContext } from "react-icons";
 
 import Login from "./login.component";
 import Emails from "./Emails";
-import performanceReview from "./performanceReview";
+import TasksList from "./tasksList";
+import EditTask from "./editTask";
 
 export default function Navigation() {
   const [sidebar, setSidebar] = useState(false);
@@ -56,10 +57,10 @@ export default function Navigation() {
             E-Management
           </a>
 
-          <a style={{ marginLeft: "60rem" }}>
+          {/* <a style={{ marginLeft: "60rem" }}>
             <FaIcons.FaRegUser />
             User Name
-          </a>
+          </a> */}
           <a
             href="/sign-in"
             className="btn  button1"
@@ -80,9 +81,9 @@ export default function Navigation() {
             <div className="inner"> */}
         <Switch>
           <Route exact path="/emails" component={Emails} />
-          <Route path="/performanceReview" component={performanceReview} />
-          <Route path="/HR-Resources" component={Emails} />
-          <Route path="/RecentActivity" component={Emails} />
+          <Route path="/TasksList" component={TasksList} />
+          <Route path="/Edit_Task" component={EditTask} />
+
           {/* <Route path="/dashboard" component={Das}/> */}
           <div className="outer">
             <div className="inner">

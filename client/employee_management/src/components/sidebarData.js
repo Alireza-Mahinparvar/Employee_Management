@@ -17,21 +17,9 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Performance Reviews",
-    path: "/performanceReview",
-    icon: <FaIcons.FaRegStickyNote />,
-    cName: "nav-text",
-  },
-  {
-    title: "HR Team",
-    path: "/HR-Resources",
+    title: "Tasks List",
+    path: "/TasksList",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },
-  // {
-  //   title: "Mo Money Mo Milk",
-  //   path: "/support",
-  //   icon: <FaIcons.FaMoneyBillWave />,
-  //   cName: "nav-text",
-  // },
 ];

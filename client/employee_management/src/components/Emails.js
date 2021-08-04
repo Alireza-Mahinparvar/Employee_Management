@@ -94,13 +94,9 @@ function Emails() {
         </fieldset>
       </form>
 
-      <legend class="container-userList">
-        {" "}
-        Users list to send email to?
-        {<RecordList />}
-      </legend>
+      <legend className="container-userList">{<RecordList />}</legend>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -130,18 +130,18 @@ class Edit extends Component {
   render() {
     return (
       <div>
-        {/* <h3 align="center">Update Record</h3>
+        <h3 align="center">Update Record</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Person's Name: </label>
+            <label>First Name: </label>
             <input
               type="text"
               className="form-control"
-              value={this.state.person_name}
-              onChange={this.onChangePersonName}
+              value={this.state.firstname}
+              onChange={this.onChangeFirstname}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Position: </label>
             <input
               type="text"
@@ -186,8 +186,8 @@ class Edit extends Component {
                 onChange={this.onChangePersonLevel}
               />
               <label className="form-check-label">Senior</label>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
           <br />
 
           <div className="form-group">
@@ -197,7 +197,7 @@ class Edit extends Component {
               className="btn btn-primary"
             />
           </div>
-        </form> */}
+        </form>
       </div>
     );
   }
