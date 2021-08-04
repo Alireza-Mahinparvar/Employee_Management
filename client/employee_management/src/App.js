@@ -24,7 +24,10 @@ class App extends React.Component {
       //     <Route path="/products" component={SignUp} />
       //   </Switch>
       // </Router>
-      <Navigation />
+      <div className="App">
+        <Navigation />
+      </div>
+
       //   <Router>
       //     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
       //       <div className="container">

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 export default function Dashboard() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+      {/* <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <Link className="navbar-brand" to={"-"}>
             E-Management
@@ -41,11 +41,10 @@ export default function Dashboard() {
                   Logout
                 </Link>
               </li>
-              {/* <button className="logout">Logout</button> */}
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
       <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
         <h2 className="box1" id="profile">
           @profile

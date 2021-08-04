@@ -1,49 +1,50 @@
-import React from 'react';
-import { Row, Col, Container, Button } from 'react-bootstrap';
-import styled from 'styled-components';
-import axios from 'axios';
-import SearchBar from '../../components/Employee/SearchBar';
-import TableTemplate from '../../components/Employee/EmployeeTable';
+import React from "react";
+import { Row, Col, Container, Button } from "react-bootstrap";
+import styled from "styled-components";
+import axios from "axios";
+import SearchBar from "../../components/Employee/SearchBar";
+import TableTemplate from "../../components/Employee/EmployeeTable";
 
-const url = 'http://localhost:3002/api/employees';
+const url = "http://localhost:3000/record";
 
 class EmployeeDashboard extends React.Component {
   state = {
     employees: [],
-    filterValue: '',
+    filterValue: "",
     filterEmployees: [],
   };
 
   componentDidMount = () => {
     axios
       .get(url)
-      .then(response => {
-        this.setState({ employees: response.data.data });
+      .then((response) => {
+        console.log("From the dashboard: ", response.data);
+        this.setState({ employees: response.data });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
 
   deleteEmployee(id) {
-    const confirmDelete = window.confirm('Delete employee forever?');
+    const confirmDelete = window.confirm("Delete employee forever?");
     if (confirmDelete) {
-      axios.delete(`${url}/${id}`).then(res => console.log(res.data));
+      axios.delete(`${url}/${id}`).then((res) => console.log(res.data));
       this.setState({
-        employees: this.state.employees.filter(el => el.id !== id),
+        employees: this.state.employees.filter((el) => el.id !== id),
       });
     }
   }
 
-  openEditFormHandler = id => {
-    this.props.history.replace(`/edit/${id}`);
+  openEditFormHandler = (id) => {
+    this.props.history.replace(`/update/${id}`);
   };
 
   openAddFormHandler = () => {
-    window.location.href = '/add';
+    window.location.href = "/add";
   };
 
-  changeHandler = prop => this.setState({ [prop.name]: prop.value });
+  changeHandler = (prop) => this.setState({ [prop.firstname]: prop.value });
 
   render() {
     const { employees, filterValue, filterEmployees } = this.state;
@@ -57,7 +58,7 @@ class EmployeeDashboard extends React.Component {
           employees={employees}
           changeHandler={this.changeHandler.bind(this)}
         />
-        <Container>
+        <Container style={{ width: "650px", alignContent: "center" }}>
           <Row>
             <Col xs={5} sm={5}>
               <Button

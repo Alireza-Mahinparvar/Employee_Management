@@ -14,18 +14,14 @@ import { IconContext } from "react-icons";
 
 import Login from "./login.component";
 import Emails from "./Emails";
-<<<<<<< HEAD
 import TasksList from "./tasksList";
 import EditTask from "./editTask";
-=======
 import performanceReview from "./performanceReview";
-import UserDashboard from '../components/Employee/EmployeeDashboard';
-import EditForm from '../components/Employee/EditForm';
-import AddForm from '../components/Employee/AddForm';
-import Profile from '../components/profile/Profile.js';
-import ReactTable from "react-table-6";  
+import UserDashboard from "../components/Employee/EmployeeDashboard";
+import EditForm from "../components/Employee/EditForm";
+import AddForm from "../components/Employee/AddForm";
+import Profile from "../components/profile/Profile.js";
 import "react-table-6/react-table.css";
->>>>>>> 89d58c1463682dbfc78bd26c79c08c22c818dcf3
 
 export default function Navigation() {
   const [sidebar, setSidebar] = useState(false);
@@ -91,20 +87,14 @@ export default function Navigation() {
             <div className="inner"> */}
         <Switch>
           <Route exact path="/emails" component={Emails} />
-<<<<<<< HEAD
           <Route path="/TasksList" component={TasksList} />
           <Route path="/Edit_Task" component={EditTask} />
 
-=======
-          <Route path="/performanceReview" component={performanceReview} />
-          <Route path="/HR-Resources" component={Emails} />
-          <Route path="/RecentActivity" component={Emails} />
-          <Route path="/login" component={Login}/>
+          <Route path="/login" component={Login} />
           <Route path="/Dashboard" exact component={UserDashboard} />
           <Route path="/edit/:id" component={EditForm} />
           <Route path="/add" component={AddForm} />
           <Route path="/profile" component={Profile} />
->>>>>>> 89d58c1463682dbfc78bd26c79c08c22c818dcf3
           {/* <Route path="/dashboard" component={Das}/> */}
           <div className="outer">
             <div className="inner">

@@ -5,9 +5,9 @@ import * as IoIcons from "react-icons/io";
 
 export const SidebarData = [
   {
-    title: "Home",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
+    title: "Dashboard",
+    path: "/Dashboard",
+    icon: <IoIcons.IoMdBookmark />,
     cName: "nav-text",
   },
   {

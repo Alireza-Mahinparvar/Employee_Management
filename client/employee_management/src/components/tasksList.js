@@ -505,7 +505,7 @@ export default class TasksList extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: 20 }}>
+      <div>
         {/* <button
           type="submit"
           onSubmit={this.addTask}
@@ -546,7 +546,15 @@ export default class TasksList extends Component {
           <tbody>{this.getAllTasks()}</tbody>
         </table> */}
 
-        <form>
+        <form
+          style={{
+            // display: "flex",
+            // flexDirection: "column",
+            justifyContent: "right",
+            width: "100%",
+            marginRight: "100px",
+          }}
+        >
           <h2>
             <label htmlFor="new-todo-input" className="label__lg">
               Assign a task

@@ -1,62 +1,68 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Container, Card, Button } from 'react-bootstrap';
-import styled from 'styled-components';
-import axios from 'axios';
-import { closeForm } from '../../components/Employee/CloseForm';
+import React, { useState } from "react";
+import { Row, Col, Form, Container, Card, Button } from "react-bootstrap";
+import styled from "styled-components";
+import axios from "axios";
+import { closeForm } from "../../components/Employee/CloseForm";
 
-const addUrl = 'http://localhost:3002/api/add/employees/';
-
+const addUrl = "http://localhost:3002/api/add/employees/";
 
 function AddForm() {
   const [employee, setEmployee] = useState({
-    name: '',
-    profession: '',
-    email:'',
-    city: '',
+    firstname: "",
+    lastname: "",
+    profession: "",
+    email: "",
+    // city: '',
     assigned: false,
   });
 
-  const onChangeName = event => {
+  const onChangeFirstname = (event) => {
     setEmployee({
       ...employee,
-      name: event.target.value,
+      firstname: event.target.value,
+    });
+  };
+  const onChangeLastname = (event) => {
+    setEmployee({
+      ...employee,
+      lastname: event.target.value,
     });
   };
 
-  const onChangeProfession = event => {
+  const onChangeProfession = (event) => {
     setEmployee({
       ...employee,
       profession: event.target.value,
     });
   };
 
-  const onChangeEmail = event => {
+  const onChangeEmail = (event) => {
     setEmployee({
       ...employee,
       email: event.target.value,
     });
   };
 
-  const onChangeCity = event => {
-    setEmployee({
-      ...employee,
-      city: event.target.value,
-    });
-  };
-
+  // const onChangeCity = event => {
+  //   setEmployee({
+  //     ...employee,
+  //     city: event.target.value,
+  //   });
+  // };
 
   const isInputFieldEmpty = () => {
     return (
-      employee.name === '' ||
-      employee.profession === '' ||
-      employee.email === '' ||
-      employee.city === '' ||
+      employee.firstname === "" ||
+      employee.lastname === "" ||
+      employee.profession === "" ||
+      employee.email === "" ||
+      // employee.city === '' ||
       employee.assigned === null
     );
   };
 
   const handleSubmit = () => {
-    axios.post(addUrl, employee).then(res => {
+    axios.post(addUrl, employee).then((res) => {
       console.log(res.data.data);
       closeForm();
     });
@@ -68,8 +74,8 @@ function AddForm() {
         <Row className="justify-content-md-center">
           <Col xs={12} sm={9}>
             <H6>
-              Please fill out the form to add an employee and then click
-              the submit button.
+              Please fill out the form to add an employee and then click the
+              submit button.
             </H6>
           </Col>
         </Row>
@@ -80,14 +86,25 @@ function AddForm() {
               <Card.Body>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group controlId="addName">
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>First Name</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      name="name"
-                      placeholder="Please enter full name"
-                      value={employee.name}
-                      onChange={onChangeName}
+                      name="firstname"
+                      placeholder="Please enter first name"
+                      value={employee.firstname}
+                      onChange={onChangeFirstname}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="addName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      name="lastname"
+                      placeholder="Please enter last name"
+                      value={employee.lastname}
+                      onChange={onChangeLastname}
                     />
                   </Form.Group>
                   <Form.Group controlId="addProfession">
@@ -112,8 +129,8 @@ function AddForm() {
                       onChange={onChangeEmail}
                     />
                   </Form.Group>
-                  
-                  <Form.Group controlId="addCity">
+
+                  {/* <Form.Group controlId="addCity">
                     <Form.Label>City: </Form.Label>
                     <Form.Control
                       required
@@ -123,7 +140,7 @@ function AddForm() {
                       value={employee.city}
                       onChange={onChangeCity}
                     />
-                  </Form.Group>
+                  </Form.Group> */}
                   <Button
                     variant="danger"
                     size="sm"

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { filterHandler } from '../../components/Employee/FilterHandler';
+import React from "react";
+import styled from "styled-components";
+import { filterHandler } from "../../components/Employee/FilterHandler";
 
 const searchBar = ({ filterValue, employees, changeHandler }) => {
   return (
@@ -12,8 +12,8 @@ const searchBar = ({ filterValue, employees, changeHandler }) => {
         name="filter"
         required
         size="30"
-        placeholder="Search by employee's name..."
-        onChange={e => filterHandler(e, employees, changeHandler)}
+        placeholder="Search by employee's first name..."
+        onChange={(e) => filterHandler(e, employees, changeHandler)}
         value={filterValue}
       />
     </Wrapper>

@@ -1,62 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Form, Container, Card, Button } from 'react-bootstrap';
-import styled from 'styled-components';
-import axios from 'axios';
-import { closeForm } from '../../components/Employee/CloseForm';
+import React, { useState, useEffect } from "react";
+import { Row, Col, Form, Container, Card, Button } from "react-bootstrap";
+import styled from "styled-components";
+import axios from "axios";
+import { closeForm } from "../../components/Employee/CloseForm";
 
-const url = 'http://localhost:3002/api/employees';
-const editUrl = 'http://localhost:3002/api/edit/employees';
-
+const url = "http://localhost:3002/api/employees";
+const editUrl = "http://localhost:3002/api/edit/employees";
 
 function EditForm(props) {
   const [employee, setEmployee] = useState({
-    name: '',
-    profession: '',
-    city: '',
-    email: '',
+    name: "",
+    profession: "",
+    // city: '',
+    email: "",
     assigned: false,
   });
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     axios
       .get(`${url}/${props.match.params.id}`)
-      .then(response =>
+      .then((response) =>
         setEmployee({
           ...employee,
-          name: response.data.data.name,
-          profession: response.data.data.profession,
-          city: response.data.data.city,
-          email: response.data.data.branch,
+          firstname: response.data.data.firstname,
+          role: response.data.data.role,
+          // city: response.data.data.city,
+          email: response.data.data.email,
           assigned: response.data.data.assigned,
-        }),
+        })
       )
-      .catch(err => setErrorMessage('Fetch error. API is not available.'));
+      .catch((err) => setErrorMessage("Fetch error. API is not available."));
     console.log(errorMessage);
   }, []);
 
-  const onChangeName = event => {
+  const onChangeName = (event) => {
     setEmployee({
       ...employee,
       name: event.target.value,
     });
   };
 
-  const onChangeProfession = event => {
+  const onChangeProfession = (event) => {
     setEmployee({
       ...employee,
       profession: event.target.value,
     });
   };
 
-  const onChangeCity = event => {
-    setEmployee({
-      ...employee,
-      city: event.target.value,
-    });
-  };
+  // const onChangeCity = (event) => {
+  //   setEmployee({
+  //     ...employee,
+  //     city: event.target.value,
+  //   });
+  // };
 
-  const onChangeEmail = event => {
+  const onChangeEmail = (event) => {
     setEmployee({
       ...employee,
       email: event.target.value,
@@ -65,10 +64,10 @@ function EditForm(props) {
 
   const isInputFieldEmpty = () => {
     return (
-      employee.name === '' ||
-      employee.profession === '' ||
-      employee.city === '' ||
-      employee.email === '' ||
+      employee.name === "" ||
+      employee.profession === "" ||
+      employee.city === "" ||
+      employee.email === "" ||
       employee.assigned === null
     );
   };
@@ -76,7 +75,7 @@ function EditForm(props) {
   const onClickSubmit = () => {
     axios
       .patch(`${editUrl}/${props.match.params.id}`, employee)
-      .then(response => console.log(response.data.data));
+      .then((response) => console.log(response.data.data));
     closeForm();
   };
 
@@ -86,8 +85,8 @@ function EditForm(props) {
         <Row className="justify-content-md-center">
           <Col xs={12} sm={9}>
             <H6>
-              Please change the information below to update employee
-              details then click the submit button.
+              Please change the information below to update employee details
+              then click the submit button.
             </H6>
           </Col>
         </Row>
@@ -127,7 +126,7 @@ function EditForm(props) {
                       onChange={onChangeEmail}
                     />
                   </Form.Group>
-                  <Form.Group controlId="editCity">
+                  {/* <Form.Group controlId="editCity">
                     <Form.Label>City:</Form.Label>
                     <Form.Control
                       required
@@ -136,7 +135,7 @@ function EditForm(props) {
                       value={employee.city}
                       onChange={onChangeCity}
                     />
-                  </Form.Group>
+                  </Form.Group> */}
 
                   <Button
                     variant="danger"
